@@ -1,12 +1,13 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Selenium Test Suite">
-    <test name="loginNewUser">
-    	<parameter name="userEmail" value="johnwick@killer.com" />
-      	<parameter name="userPassword" value="JohnWick@007" />
-        <classes>
-        	
-            <class name="com.DemoWebShop.test.TestRegisterNewUser"/>
-            
-        </classes>
-    </test>
+	<test name="loginNewUser">
+		<parameter name="userEmail" value="johnwick@killer.com" />
+		<parameter name="userPassword" value="JohnWick@007" />
+		<classes>
+
+			<class name="com.DemoWebShop.test.TestRegisterNewUser" />
+			<class name="com.DemoWebShop.test.TestAddBookInCart" />
+
+		</classes>
+	</test>
 </suite>

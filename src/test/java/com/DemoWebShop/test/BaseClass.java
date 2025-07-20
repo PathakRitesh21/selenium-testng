@@ -32,7 +32,7 @@ public class BaseClass {
 	public void initDriver(String driverName) {
 		try {
 		if (driverName.equalsIgnoreCase("chrome")) {
-			WebDriverManager.chromedriver().setup();
+			WebDriverManager.chromedriver().clearResolutionCache().setup();
 	    	driver = new ChromeDriver();
 	    	driver.manage().window().maximize();
 	    	System.out.println("Setup Completed Successfully");
@@ -75,16 +75,20 @@ public class BaseClass {
 		currentWorkingDirectory = System.getProperty("user.dir");
 		configFileName = currentWorkingDirectory + "/config/config.properties" ;
 		reportFilename = currentWorkingDirectory + "/reports/TestReport.html" ;
+		
 		configProperty = ConfigUtils.readProperties(configFileName);
 		reportUtils = new ReportUtils(reportFilename);
-		screenshot = new ScreenshotUtils(driver);
 		
 		String url = configProperty.getProperty("baseUrl");
 		String browser = configProperty.getProperty("browser");
-		initDriver(browser);
+
+		initDriver(browser); // Driver initialized
+		screenshot = new ScreenshotUtils(driver); // Now pass the actual driver
+		
 		openWebpage(url);
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS)		;
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	}
+
 	
 	@AfterMethod
 	public void postTestAction(ITestResult result) throws Exception {

@@ -55,6 +55,7 @@ public class TestAddBookInCart extends BaseClass  {
 		webAction.click(shoppingCartPage.updateCart);
 		
 		// Verification
+		reportUtils.addTestLog(Status.INFO, "Verification of Empty Cart");
 		Assert.assertTrue(shoppingCartPage.emptyCartSummary.getText().contains("Your Shopping Cart is empty!"));
 		
 		

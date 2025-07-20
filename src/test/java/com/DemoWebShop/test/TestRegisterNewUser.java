@@ -63,7 +63,7 @@ public class TestRegisterNewUser extends BaseClass  {
 		
 		// Verification
 		reportUtils.addTestLog(Status.INFO, "Verification");
-		Assert.assertEquals(loginPage.loginAccount.getText(),"johnSnow@killer.com");
+		Assert.assertEquals(loginPage.loginAccount.getText(),"johnwick@killer.com");
 		
 		
 		
